@@ -1,0 +1,11 @@
+# .NET Core 플랫폼에서 생성하는 파일 및 디렉토리
+project.json
+project.lock.json
+Program.cs
+bin/
+obj/
+
+# Vim에서 생성하는 스왑 파일
+*.swp
+*.swo
+*.swx
