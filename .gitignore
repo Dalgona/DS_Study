@@ -4,6 +4,7 @@ project.lock.json
 Program.cs
 bin/
 obj/
+.vscode/
 
 # Vim에서 생성하는 스왑 파일
 *.swp

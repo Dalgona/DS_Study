@@ -1,5 +1,3 @@
-using System;
-
 namespace Dalgona.DSStudy
 {
   public interface IList<TElem>
@@ -13,7 +11,8 @@ namespace Dalgona.DSStudy
     // 새 요소를 리스트의 주어진 위치에 추가
     void AddAt(TElem e, int index);
 
-    // 리스트에서 주어진 위치에 저장되어 있는 요소를 삭제
+    // 리스트에서 주어진 위치에 저장되어 있는
+    // 요소를 삭제하고, 삭제된 요소를 반환
     TElem RemoveAt(int index);
 
     // 주어진 데이터가 리스트의 요소인지를 반환

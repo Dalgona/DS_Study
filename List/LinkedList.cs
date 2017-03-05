@@ -61,7 +61,8 @@ namespace Dalgona.DSStudy
       }
     }
 
-    // 리스트에서 주어진 위치에 저장되어 있는 요소를 삭제
+    // 리스트에서 주어진 위치에 저장되어 있는
+    // 요소를 삭제하고, 삭제된 요소를 반환
     public TElem RemoveAt(int index)
     {
       if (index < 0 || index >= Count)
