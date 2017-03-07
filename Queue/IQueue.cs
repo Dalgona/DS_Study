@@ -7,7 +7,7 @@ public interface IQueue<TElem>
   TElem Dequeue();
 
   // 큐의 맨 앞에 있는 요소를 확인
-  TElem First { get; }
+  TElem Front { get; }
 
   // 큐에 저장되어 있는 요소의 수
   int Count { get; }

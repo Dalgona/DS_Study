@@ -14,7 +14,7 @@ namespace Dalgona.DSStudy
     public TElem Dequeue() => list.RemoveAt(0);
 
     // 큐의 맨 앞에 있는 요소를 확인
-    public TElem First => list[0];
+    public TElem Front => list[0];
 
     // 큐에 저장되어 있는 요소의 수
     public int Count

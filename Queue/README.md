@@ -22,7 +22,7 @@ public interface IQueue<TElem>
   TElem Dequeue();
 
   // 큐의 맨 앞에 있는 요소를 확인
-  TElem First { get; }
+  TElem Front { get; }
 
   // 큐에 저장되어 있는 요소의 수
   int Count { get; }
@@ -70,7 +70,7 @@ public class CircularQueue<TElem> : IQueue<TElem>
 
   // 큐의 후단을 가리키는 인덱스
   private int rear = 0;
-  
+
   /* IQueue<TElem> 인터페이스 구현 */
 
   public override string ToString() { /* ... */ }
