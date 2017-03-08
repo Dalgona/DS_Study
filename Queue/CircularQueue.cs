@@ -75,7 +75,7 @@ namespace Dalgona.DSStudy
     public override string ToString()
     {
       var sb = new StringBuilder("<CircularQueue: (front)");
-      for (int i = front % MaxArraySize; i != rear; i = (i + 1) % MaxArraySize)
+      for (int i = front; i != rear; i = (i + 1) % MaxArraySize)
       {
         sb.Append(' ');
         sb.Append(array[(i + 1) % MaxArraySize]);

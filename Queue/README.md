@@ -8,7 +8,7 @@
 
 ## 큐의 구현
 
-큐와 덱은 내부적으로 배열, 연결 리스트, 원형 배열 등을 이용하여 구현할 수 있다. 원형 배열이란 배열의 처음과 끝을 논리적으로 이어 붙여 사용하는 것이다. 여기서는 원형 배열을 사용하여 큐와 덱을 각각 구현해 볼 것이다.
+큐는 내부적으로 배열, 연결 리스트, 원형 배열 등을 이용하여 구현할 수 있다. 원형 배열이란 배열의 처음과 끝을 논리적으로 이어 붙여 사용하는 것이다. 여기서는 원형 배열을 사용하여 구현해 볼 것이다.
 
 ### 큐 인터페이스
 
@@ -130,7 +130,13 @@ TElem[] array =  ... |  E  | *F  |  A  |  B  |  C  |  D  | ...
 ```cs
 index = (index + 1) % MaxArraySize;
 ```
-<!--
+
+## 덱의 구현
+
+덱도 원형 배열을 이용하여 큐와 같은 방법으로 구현할 수 있다. 다만 덱은 양쪽 끝에서 요소의 삽입과 삭제가 둘 다 가능하다는 차이점이 있다.
+
+### 덱 인터페이스
+
 ```cs
 public interface IDeque<TElem>
 {
@@ -147,10 +153,10 @@ public interface IDeque<TElem>
   TElem RemoveLast();
 
   // 덱의 맨 앞에 있는 요소를 확인
-  TElem First { get; }
+  TElem Front { get; }
 
   // 덱의 맨 뒤에 있는 요소를 확인
-  TElem Last { get; }
+  TElem Rear { get; }
 
   // 덱에 저장되어 있는 요소의 수
   int Count { get; }
@@ -162,4 +168,32 @@ public interface IDeque<TElem>
   bool IsFull { get; }
 }
 ```
--->
+
+### 원형 덱
+
+```cs
+public class CircularDeque<TElem> : IDeque<TElem>
+{
+  // 배열의 크기 고정
+  private const int MaxArraySize = 100;
+
+  // 요소를 저장할 배열
+  private TElem[] array = new TElem[MaxArraySize];
+
+  // 덱의 전단을 가리키는 인덱스
+  private int front = 0;
+
+  // 덱의 후단을 가리키는 인덱스
+  private int rear = 0;
+
+  /* IDeque<TElem> 인터페이스 구현 */
+
+  public override string ToString() { /* ... */ }
+}
+```
+
+원형 덱을 구현할 때도 앞에서 설명한 규칙이 적용된다. 다만 원형 큐에서는 `front`와 `rear` 인덱스가 앞으로만 이동하는 반면에, 덱에서는 상황에 따라 앞뒤로 이동할 수 있다. 인덱스를 뒤로 한 칸 이동시키면서 인덱스 값이 음수가 될 수도 있으므로 다음과 같이 처리를 해 주어야 한다.
+
+```cs
+index = (index - 1 + MaxArraySize) % MaxArraySize;
+```
